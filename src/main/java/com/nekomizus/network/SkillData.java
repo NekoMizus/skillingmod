@@ -9,7 +9,9 @@ import net.minecraft.resources.ResourceLocation;
 
 public record SkillData(
         int miningXP,
-        int woodcuttingXP
+        int woodcuttingXP,
+        int farmingXP,
+        int combatXP
 ) implements CustomPacketPayload {
     public static final Type<SkillData> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(SkillingMod.MOD_ID, "send_xp"));
     public static final StreamCodec<ByteBuf, SkillData> STREAM_CODEC = StreamCodec.composite(
@@ -17,6 +19,10 @@ public record SkillData(
             SkillData::miningXP,
             ByteBufCodecs.VAR_INT,
             SkillData::woodcuttingXP,
+            ByteBufCodecs.VAR_INT,
+            SkillData::farmingXP,
+            ByteBufCodecs.VAR_INT,
+            SkillData::combatXP,
             SkillData::new
     );
     

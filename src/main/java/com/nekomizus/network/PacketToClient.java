@@ -10,7 +10,9 @@ public class PacketToClient {
         if (player instanceof ServerPlayer sp) {
             int miningXP = sp.getData(SkillsRegistry.MINING.get());
             int woodcuttingXP = sp.getData(SkillsRegistry.WOODCUTTING.get());
-            PacketDistributor.sendToPlayer(sp, new SkillData(miningXP, woodcuttingXP));
+            int farmingXP = sp.getData(SkillsRegistry.FARMING.get());
+            int combatXP = sp.getData(SkillsRegistry.COMBAT.get());
+            PacketDistributor.sendToPlayer(sp, new SkillData(miningXP, woodcuttingXP, farmingXP, combatXP));
         }
     }
 }

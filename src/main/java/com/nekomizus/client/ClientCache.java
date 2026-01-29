@@ -1,6 +1,7 @@
 package com.nekomizus.client;
 
 import com.nekomizus.network.SkillData;
+import com.nekomizus.skills.SkillsCommands;
 import com.nekomizus.skills.SkillsFunctions;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
@@ -36,6 +37,12 @@ public class ClientCache {
 
             woodcuttingXP = data.woodcuttingXP();
             woodcuttingLevel = SkillsFunctions.toLevel(woodcuttingXP);
+
+            farmingXP = data.farmingXP();
+            farmingLevel = SkillsFunctions.toLevel(farmingXP);
+
+            combatXP = data.combatXP();
+            combatLevel = SkillsFunctions.toLevel(combatXP);
         });
     }
 

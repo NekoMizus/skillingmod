@@ -1,5 +1,6 @@
 package com.nekomizus.skilling;
 
+import com.nekomizus.combat.Death;
 import com.nekomizus.network.SkillData;
 import com.nekomizus.skills.BreakBlock;
 import com.nekomizus.skills.SkillsCommands;
@@ -46,12 +47,7 @@ public class SkillingMod {
 
         SkillsRegistry.register(modEventBus);
         NeoForge.EVENT_BUS.register(new BreakBlock());
-
-
-
-
-
-
+        NeoForge.EVENT_BUS.register(new Death());
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -87,7 +83,9 @@ public class SkillingMod {
         if (event.getEntity() instanceof ServerPlayer sp) {
             int miningXP = sp.getData(SkillsRegistry.MINING.get());
             int woodcuttingXP = sp.getData(SkillsRegistry.WOODCUTTING.get());
-            PacketDistributor.sendToPlayer(sp, new SkillData(miningXP, woodcuttingXP));
+            int farmingXP = sp.getData(SkillsRegistry.FARMING.get());
+            int combatXP = sp.getData(SkillsRegistry.COMBAT.get());
+            PacketDistributor.sendToPlayer(sp, new SkillData(miningXP, woodcuttingXP, farmingXP, combatXP));
         }
     }
 }

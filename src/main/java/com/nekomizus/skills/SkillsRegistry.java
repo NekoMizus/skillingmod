@@ -41,6 +41,9 @@ public class SkillsRegistry {
     public static final Supplier<AttachmentType<Integer>> RUNECRAFTING = ATTACHMENT_TYPES.register(
             "runecraft", () -> AttachmentType.builder(() -> 0).serialize(Codec.INT).build()
     );
+    public static final Supplier<AttachmentType<Integer>> FARMING = ATTACHMENT_TYPES.register(
+            "farming", () -> AttachmentType.builder(() -> 0).serialize(Codec.INT).build()
+    );
 
     public static void register(IEventBus bus) {
         ATTACHMENT_TYPES.register(bus);

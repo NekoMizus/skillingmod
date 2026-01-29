@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.attachment.AttachmentType;
 
+
 import java.util.Locale;
 import java.util.function.Supplier;
 
@@ -78,6 +79,7 @@ public final class SkillsCommands {
                 case "crafting" -> SkillsRegistry.CRAFTING;
                 case "cooking" -> SkillsRegistry.COOKING;
                 case "runecraft" -> SkillsRegistry.RUNECRAFTING;
+                case "farming" -> SkillsRegistry.FARMING;
                 default -> throw new IllegalArgumentException("Unknown skill: " + key);
             };
         }
@@ -92,6 +94,7 @@ public final class SkillsCommands {
             if (skill == SkillsRegistry.CRAFTING) return "crafting";
             if (skill == SkillsRegistry.COOKING) return "cooking";
             if (skill == SkillsRegistry.RUNECRAFTING) return "runecraft";
+            if (skill == SkillsRegistry.FARMING) return "farming";
             return "skill";
         }
     }
